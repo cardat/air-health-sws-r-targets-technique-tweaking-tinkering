@@ -15,37 +15,59 @@ library(splines)
 #### First option: standard scripted workflow ####
 source("R/script_load_the_data.R")
 source("R/script_plot_time_series.R")
-## Time-stratified case-crossover design (TSD)
+#### Time-stratified case-crossover design (TSD) ####
 ##reference window: the same day of the week in the same month and year
 ### estimate beta using model.tsd.clr
 ####TSD using conditional logistic regression
 source("R/script_model.tsd.clr.R")
-summary(fit.tsd.clr)
-##b.tsd.clr is the percentage increase of relative risk per 10microgram pm10 increase
-b.tsd.clr = (exp(fit.tsd.clr$coeff[1] * 10) - 1) * 100
-## the following is the Increase in risk and 95%CI of the estimate
-x <- summary(fit)$coeff
-nms <- rownames(x)
-beta <- x[which(nms %in% subset),1]
-se <- x[which(nms %in% subset),2]
-est <- exp(beta)
-x2p5 <- exp(beta) - (1.96 * se)
-x97p5 <- exp(beta) + (1.96 * se)
+fittedc <- summary(fit.tsd.clr)$coeff
+fittedc
+##b.tsd.clr is the percentage increase/decrease of relative risk per 10microgram pm10 increase
+beta <- fittedc[1,"coef"]
+se <- fittedc[1,"se(coef)"]
+b.tsd.clr = (exp(beta * 10) - 1) * 100
+##se.tsd.clr is the standard error of the estimated risk% per 10microgram pm10 change
+se.tsd.clr=(exp(se * 10) - 1) * 100
 
+## the following is a function to get the Increase in risk and 95%CI of the estimate
+ci_95 <- function(
+    fit = fit.tsd.clr,
+    subset = "pm10",
+    delta = 10
+    ){
+  x <- summary(fit)$coeff
+  nms <- rownames(x)
+  beta <- x[which(nms %in% subset),"coef"]
+  se <- x[which(nms %in% subset),"se(coef)"]
+  est <- (exp(beta * delta))#-1)*100 
+  x2p5 <-  (exp((beta - 1.96 * se)*delta))# - 1)*100
+  x97p5 <- (exp((beta + 1.96 * se)*delta))# - 1)*100
+  estout <- data.frame(est, x2p5, x97p5)
+  return(estout)
+}
+estimates <- ci_95(fit = fit.tsd.clr, subset = "pm10",delta = 10)
+knitr::kable(estimates, digits = 5)
+
+#### TODO model.tsd####
+### estimate beta using model.tsd
+##TSD using time series log-linear model using indicator variables for strata
+##without over-dispersion
+### the estimator and standard error should be the same as obtained using model.tsd.clr
+### model.tsd allows for model-checking using log-linear model diagnostics
 source("R/script_model.tsd.R")
+## this currently just runs the function definition
 
-
-#### second option: R-targets pipeline ####
-library(targets)
-
-if(!file.exists("figures_and_tables")) dir.create("figures_and_tables")
-
-sapply(dir("R/", pattern = ".R$", full.names = T), source)
-
-tar_visnetwork(targets_only = T)
-
-tar_make()
-
-#### exploratory data analysis ####
-tar_load(out)
-str(out)
+#### TODO second option: R-targets pipeline ####
+# library(targets)
+# 
+# if(!file.exists("figures_and_tables")) dir.create("figures_and_tables")
+# 
+# sapply(dir("R/", pattern = ".R$", full.names = T), source)
+# 
+# tar_visnetwork(targets_only = T)
+# 
+# tar_make()
+# 
+# #### exploratory data analysis ####
+# tar_load(out)
+# str(out)
