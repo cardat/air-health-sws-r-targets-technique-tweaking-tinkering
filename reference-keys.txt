@@ -9,7 +9,7 @@ the-body
 tip-do-check-that-the-inputs-are-as-expected
 do-stuff
 return-outputs
-tip-put-each-argument-on-a-separate-line
+tip-put-each-argument-on-a-separate-line-and-debug-in-interactive-mode
 r-targets-pipeline-recommendations-ex.2-and-ex.3
 ex.2-a-simple-r-targets-pipeline
 step-1-ensure-the-workspace-is-defined
