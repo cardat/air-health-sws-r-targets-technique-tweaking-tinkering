@@ -1,9 +1,15 @@
+# dat <- data.frame(x = 1:5, y = 10 * exp(0.3 * 1:5) + rnorm(5, 0, 2), uiw = 10 * exp(0.3 * 1:5) + rnorm(5, 0, 2) + (0.1 * (10 * exp(0.3 * 1:5) + rnorm(5, 0, 2)) + 1), liw = 10 * exp(0.3 * 1:5) + rnorm(5, 0, 2) - (0.1 * (10 * exp(0.3 * 1:5) + rnorm(5, 0, 2)) + 1))
+# uiw <- dat$uiw
+
 plotCI <- function (
-    x, 
-    y = NULL, 
-    uiw, 
-    liw = uiw, 
-    ..., 
+    x = dat
+    , 
+    y = NULL
+    , 
+    uiw = dat$uiw
+    , 
+    liw = uiw
+    , 
     sfrac = 0.01
     ){
   
@@ -18,7 +24,7 @@ plotCI <- function (
   }
   ui <- y + uiw
   li <- y - liw
-  plot(x, y, ylim = range(c(y, ui, li)), ...)
+  plot(x, y, ylim = range(c(y, ui, li)))
   smidge <- diff(par("usr")[1:2]) * sfrac
   segments(x, li, x, ui)
   x2 <- c(x, x)
@@ -27,6 +33,10 @@ plotCI <- function (
   invisible(list(x = x, y = y))
 }
 
+## TEST
+# plotCI(x = df, uiw = df$uiw)
+
+## REFERENCE:
 ## Original https://stat.ethz.ch/pipermail/r-help/1997-September/001758.html
 ## Plot with error bars
 ## Bill Venables wvenable at attunga.stats.adelaide.edu.au
@@ -42,12 +52,13 @@ plotCI <- function (
 ## liw is the distance(s) from y to the lower end of the interval,
 ##      (if omitted taken to be the same as uiw),
 
-## ... allows extra arguments to be passed to plot, eg xlab, ylab,
-##     type, lty, lwd, &c. (but not passed to segments()),
-
 ## sfrac is the fraction of the x-axis width to be used as the
 ##      half-length of the seriphs that customarily go at each end
 ##      of the intervals, (by default 1%).
+
+## NOTE: I simplified the original to remove the options
+## ... allows extra arguments to be passed to plot, eg xlab, ylab,
+##     type, lty, lwd, &c. (but not passed to segments()),
 
 ## -- 
 ## Bill Venables, Head, Dept of Statistics,    Tel.: +61 8 8303 5418

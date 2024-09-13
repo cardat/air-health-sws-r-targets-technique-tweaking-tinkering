@@ -31,7 +31,8 @@ knitr::include_graphics("figures_and_tables/Slide3.PNG")
 
 
 - Then the brackets enclose the `arguments` of the function `(x, y = NULL etc)`.
-
+- The argument `x` has no default value, however the argument `y` has the default setting of `NULL` which means that if the analyst does not supply any value for `y` when the function is called, then `y = NULL`.
+- Likewise `uiw` has no default whereas `liw` does.  If `liw` is not supplied then it will take the value of `uiw`.
 
 ## The body
 
@@ -67,15 +68,23 @@ knitr::include_graphics("figures_and_tables/Slide7.PNG")
 ```
 
 
-## Tip: put each argument on a separate line
+## Tip: put each argument on a separate line and debug in interactive mode
 
 
 ```{r, sl8, eval=T, echo = F, out.width="2400px"}
 knitr::include_graphics("figures_and_tables/Slide8.PNG")
 ```
 
-- The argument `x` has no default value, however the argument `y` has the default setting of `NULL` which means that if the analyst does not supply any value for `y` when the function is called, then `y = NULL`.
-- Likewise `uiw` has no default whereas `liw` does.  If `liw` is not supplied then it will take the value of `uiw`.
+- Whilst it would be the 'best practice' to use `debug()` or `browser()` to examine the state of the function at runtime, it can be very helpful to run in interactive mode for debugging complex issues or building up pipelines
+- In the example shown I have created some dummy data and set the required values up in the first two lines, which remain commented out so they don't interrupt the function when we load it
+- I then load the required arguments values (notice how I made each one a seperate line to make it easy to run them)
+- I can then step through each line in the global environment
+- Once I am happy with the function I can then load it (using `source`) and then run the test which is at the bottom
+- Creating this result
+ 
+```{r, sl9, eval=T, echo = F, out.width="2400px"}
+knitr::include_graphics("figures_and_tables/Slide9.PNG")
+```
 
 ## R-targets pipeline recommendations (Ex.2 and Ex.3)
 

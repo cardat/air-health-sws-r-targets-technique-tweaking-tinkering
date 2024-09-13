@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.2 The arguments | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook</title>
   <meta name="description" content="4.2 The arguments | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.2 The arguments | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Ivan Hanigan" />
 
 
-<meta name="date" content="2023-03-10" />
+<meta name="date" content="2024-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,10 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -82,7 +86,7 @@
 <li class="chapter" data-level="4.4" data-path="tip-do-check-that-the-inputs-are-as-expected.html"><a href="tip-do-check-that-the-inputs-are-as-expected.html"><i class="fa fa-check"></i><b>4.4</b> Tip: do check that the inputs are as expected</a></li>
 <li class="chapter" data-level="4.5" data-path="do-stuff.html"><a href="do-stuff.html"><i class="fa fa-check"></i><b>4.5</b> Do stuff</a></li>
 <li class="chapter" data-level="4.6" data-path="return-outputs.html"><a href="return-outputs.html"><i class="fa fa-check"></i><b>4.6</b> Return outputs</a></li>
-<li class="chapter" data-level="4.7" data-path="tip-put-each-argument-on-a-separate-line.html"><a href="tip-put-each-argument-on-a-separate-line.html"><i class="fa fa-check"></i><b>4.7</b> Tip: put each argument on a separate line</a></li>
+<li class="chapter" data-level="4.7" data-path="tip-put-each-argument-on-a-separate-line-and-debug-in-interactive-mode.html"><a href="tip-put-each-argument-on-a-separate-line-and-debug-in-interactive-mode.html"><i class="fa fa-check"></i><b>4.7</b> Tip: put each argument on a separate line and debug in interactive mode</a></li>
 <li class="chapter" data-level="4.8" data-path="r-targets-pipeline-recommendations-ex.2-and-ex.html"><a href="r-targets-pipeline-recommendations-ex.2-and-ex.html"><i class="fa fa-check"></i><b>4.8</b> R-targets pipeline recommendations (Ex.2 and Ex.3)</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ex.2-a-simple-r-targets-pipeline.html"><a href="ex.2-a-simple-r-targets-pipeline.html"><i class="fa fa-check"></i><b>5</b> Ex.2: a simple R-targets pipeline</a>
@@ -113,6 +117,8 @@
 <p><img src="figures_and_tables/Slide3.PNG" width="2400px" /></p>
 <ul>
 <li>Then the brackets enclose the <code>arguments</code> of the function <code>(x, y = NULL etc)</code>.</li>
+<li>The argument <code>x</code> has no default value, however the argument <code>y</code> has the default setting of <code>NULL</code> which means that if the analyst does not supply any value for <code>y</code> when the function is called, then <code>y = NULL</code>.</li>
+<li>Likewise <code>uiw</code> has no default whereas <code>liw</code> does. If <code>liw</code> is not supplied then it will take the value of <code>uiw</code>.</li>
 </ul>
 </div>
             </section>

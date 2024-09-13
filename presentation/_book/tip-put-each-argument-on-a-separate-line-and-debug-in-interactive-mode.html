@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.3 The body | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook</title>
-  <meta name="description" content="4.3 The body | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook" />
+  <title>4.7 Tip: put each argument on a separate line and debug in interactive mode | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook</title>
+  <meta name="description" content="4.7 Tip: put each argument on a separate line and debug in interactive mode | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.3 The body | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook" />
+  <meta property="og:title" content="4.7 Tip: put each argument on a separate line and debug in interactive mode | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.3 The body | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook" />
+  <meta name="twitter:title" content="4.7 Tip: put each argument on a separate line and debug in interactive mode | AirHealth-SWS: R-targets technique, tweaking and tinkering guidebook" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="the-arguments.html"/>
-<link rel="next" href="tip-do-check-that-the-inputs-are-as-expected.html"/>
+<link rel="prev" href="return-outputs.html"/>
+<link rel="next" href="r-targets-pipeline-recommendations-ex.2-and-ex.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -112,20 +112,26 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-body" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> The body<a href="the-body.html#the-body" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="figures_and_tables/Slide4.PNG" width="2400px" /></p>
+<div id="tip-put-each-argument-on-a-separate-line-and-debug-in-interactive-mode" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Tip: put each argument on a separate line and debug in interactive mode<a href="tip-put-each-argument-on-a-separate-line-and-debug-in-interactive-mode.html#tip-put-each-argument-on-a-separate-line-and-debug-in-interactive-mode" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="figures_and_tables/Slide8.PNG" width="2400px" /></p>
 <ul>
-<li>Finally the curly braces <code>{</code> and <code>}</code> enclose the body of the function.</li>
+<li>Whilst it would be the ‘best practice’ to use <code>debug()</code> or <code>browser()</code> to examine the state of the function at runtime, it can be very helpful to run in interactive mode for debugging complex issues or building up pipelines</li>
+<li>In the example shown I have created some dummy data and set the required values up in the first two lines, which remain commented out so they don’t interrupt the function when we load it</li>
+<li>I then load the required arguments values (notice how I made each one a seperate line to make it easy to run them)</li>
+<li>I can then step through each line in the global environment</li>
+<li>Once I am happy with the function I can then load it (using <code>source</code>) and then run the test which is at the bottom</li>
+<li>Creating this result</li>
 </ul>
+<p><img src="figures_and_tables/Slide9.PNG" width="2400px" /></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="the-arguments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tip-do-check-that-the-inputs-are-as-expected.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="return-outputs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-targets-pipeline-recommendations-ex.2-and-ex.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
