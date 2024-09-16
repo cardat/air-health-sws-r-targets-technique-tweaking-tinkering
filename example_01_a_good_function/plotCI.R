@@ -34,7 +34,7 @@ plotCI <- function (
 }
 
 ## TEST
-# plotCI(x = df, uiw = df$uiw)
+# plotCI(x = dat, uiw = dat$uiw)
 
 ## REFERENCE:
 ## Original https://stat.ethz.ch/pipermail/r-help/1997-September/001758.html
