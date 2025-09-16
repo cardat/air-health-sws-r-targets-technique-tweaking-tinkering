@@ -1,4 +1,0 @@
-http://www.biostat.jhsph.edu/~ylu/
-accessed 23/3/10
-
-Modified by Ivan Hanigan slightly to show PM10 and add splines
