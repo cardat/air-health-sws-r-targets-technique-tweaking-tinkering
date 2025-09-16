@@ -27,11 +27,11 @@ list(
   tar_target(plt,
              myPlot(out, filename = "figures_and_tables/plt.png")
              )
-  ,
-  #### plt2 ####
-  tar_target(plt2,
-             myPlot2(out, filename = "figures_and_tables/plt2.png")
-             )
+  # ,
+  # #### plt2 ####
+  # tar_target(plt2,
+  #            myPlot2(out, filename = "figures_and_tables/plt2.png")
+  #            )
   ,
   #### lm ####
   tar_target(lm,
